@@ -3,11 +3,11 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 public class TelegramNotificator extends TelegramLongPollingBot implements Notificator{
-    // Set your bot username here
-    private static final String BOT_USERNAME = "";
+    private final String botUsername;
 
-    public TelegramNotificator(String botToken) {
+    public TelegramNotificator(String botToken, String botUsername) {
         super(botToken);
+        this.botUsername = botUsername;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class TelegramNotificator extends TelegramLongPollingBot implements Notif
 
     @Override
     public String getBotUsername() {
-        return BOT_USERNAME;
+        return botUsername;
     }
 
 
