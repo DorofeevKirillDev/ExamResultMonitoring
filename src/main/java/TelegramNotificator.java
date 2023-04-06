@@ -4,9 +4,9 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 
 public class TelegramNotificator extends TelegramLongPollingBot implements Notificator{
     // Set your bot token here
-    private static final String BOT_TOKEN = "6235826134:AAG7XN-sqBVzJdFT4ZzDilfIV3MCqlUk9Bc";
+    private static final String BOT_TOKEN = "";
     // Set your bot username here
-    private static final String BOT_USERNAME = "ExamN0tifierBot";
+    private static final String BOT_USERNAME = "";
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -47,13 +47,9 @@ public class TelegramNotificator extends TelegramLongPollingBot implements Notif
     @Override
     public boolean sendNotification(String chatId, String TextMessage) {
         SendMessage message = new SendMessage();
-        message.setChatId("330775256");
+        message.setChatId(chatId);
         message.setText(TextMessage);
         try {
-            execute(message);
-            message = new SendMessage();
-            message.setChatId("260682954");
-            message.setText(TextMessage);
             execute(message);
             return true;
         } catch (Exception e) {
